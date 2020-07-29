@@ -30,7 +30,7 @@ function getPoki(req, res) {
 
 function addPoki(request, res) {
   let name = request.body.name;
-  let sql = `INSERT INTO pokimon (name) VALUES ($1) returning ID;`;
+  let sql = `INSERT INTO pokemon (name) VALUES ($1) returning ID;`;
 
   let safeValues = [name];
 
@@ -42,7 +42,7 @@ function addPoki(request, res) {
 }
 
 function getFavorites(req, res) {
-  let sql = 'SELECT * FROM pokimon;';
+  let sql = 'SELECT * FROM pokemon;';
   client.query(sql)
     .then(results => {
       res.render('./favorites', { poki: results.rows });
