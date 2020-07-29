@@ -40,15 +40,33 @@ jobs:
       matrix:
         node-version: [12.x]
 
+    services:
+      postgres:
+        image: postgres
+        env:
+          POSTGRES_PASSWORD: postgres
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+        ports:
+          - 5432:5432
+
     steps:
     - uses: actions/checkout@v1
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
+    - name: populate db
+      run: |
+        psql -f ./schema.sql
     - name: npm install, build, and test
       run: |
         npm i
         npm test
       env:
         CI: true
+        DATABASE_URL: postgres://localhost:5432/finals
+        PORT: 3002
