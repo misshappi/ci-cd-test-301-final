@@ -1,5 +1,6 @@
 'use strict';
 
+require('expect-puppeteer');
 const puppeteer = require('puppeteer');
 
 const SERVER = 'http://localhost:3002';
