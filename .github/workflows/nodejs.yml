@@ -22,8 +22,9 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: npm install, build, and test
-      run: npm i
-      run: npm test
+      run: |
+        npm i
+        npm test
       env:
         CI: true
 
@@ -46,7 +47,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - name: npm install, build, and test
-      run: npm i
-      run: npm test
+      run: |
+        npm i
+        npm test
       env:
         CI: true
