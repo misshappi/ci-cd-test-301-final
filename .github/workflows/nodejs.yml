@@ -59,13 +59,14 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-
+    - name: npm install &  build
+      run: |
+        npm i
     - name: create database
       run: |
         node db.js
-    - name: npm install, build, and test
+    - name: run tests
       run: |
-        npm i
         npm test
       env:
         CI: true
