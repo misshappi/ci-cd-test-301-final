@@ -5,10 +5,11 @@ on: [push]
 jobs:
   questions:
 
-  run:
-    working-directory: finalExamQuestions
-
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: finalExamQuestions
 
     strategy:
       matrix:
@@ -28,10 +29,11 @@ jobs:
 
   app:
 
-  run:
-    working-directory: finalExamApp
-
     runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: finalExamApp
 
     strategy:
       matrix:
