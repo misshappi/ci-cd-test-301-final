@@ -35,10 +35,7 @@ jobs:
     defaults:
       run:
         working-directory: finalExamApp
-      env:
-        CI: true
-        DATABASE_URL: postgres://postgres:postgres@localhost:5432/finals
-        PORT: 3002
+
     strategy:
       matrix:
         node-version: [12.x]
@@ -68,6 +65,14 @@ jobs:
     - name: create database
       run: |
         node db.js
+      env:
+        CI: true
+        DATABASE_URL: postgres://postgres:postgres@localhost:5432/finals
+        PORT: 300
     - name: run tests
       run: |
         npm test
+      env:
+        CI: true
+        DATABASE_URL: postgres://postgres:postgres@localhost:5432/finals
+        PORT: 300
