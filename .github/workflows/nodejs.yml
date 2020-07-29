@@ -65,5 +65,5 @@ jobs:
         npm test
       env:
         CI: true
-        DATABASE_URL: postgres://localhost:5432/finals
+        DATABASE_URL: postgres://postgres:postgres@localhost:5432/finals
         PORT: 3002
