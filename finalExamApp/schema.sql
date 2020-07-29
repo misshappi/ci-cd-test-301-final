@@ -1,0 +1,6 @@
+DROP TABLE pokimon;
+
+CREATE TABLE IF NOT EXISTS pokimon(
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255)
+);
