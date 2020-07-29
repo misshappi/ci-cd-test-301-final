@@ -54,3 +54,4 @@ client.connect()
   .then(() => {
     app.listen(3002, () => console.log(`listening on 3002`));
   })
+  .catch(e => console.error(e.message));

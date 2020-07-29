@@ -11,4 +11,5 @@ client.query('DROP TABLE IF EXISTS pokemon')
   .then(() => {
     client.query('CREATE TABLE pokemon ( id serial primary key, name varchar(255)')
   })
+  .catch(e => console.error(e.message));
 
